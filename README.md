@@ -128,7 +128,7 @@ sensuctl check set-output-metric-handlers check-line influxdb
 
 Log into Chronograf at http://localhost:8888.
 
-Connect to an InfluxDB instance. If you used Docker compose, the URL will be http://sensu-influx-demo_influxdb_1:8086. If you used the docker commands, the URL will be http://influxdb:8086.
+Connect to an InfluxDB instance. If you used Docker compose, the URL will be `http://sensu-influx-demo_influxdb_1:8086`. If you used the docker commands, the URL will be `http://influxdb:8086`.
 
 Navigate to "InfluxDB admin" using the menu on the left-hand side.
 
