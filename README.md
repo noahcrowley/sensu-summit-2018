@@ -1,5 +1,11 @@
 # Sensu Influx Demo
 
+First, clone the repo and create the data directories:
+
+```
+$ mkdir data data/chronograf/ data/influxdb/config/ data/influxdb/data/ data/sensu-backend/ data/sensu-agent/
+```
+
 ## Start Your Containers...
 
 ### Docker Compose

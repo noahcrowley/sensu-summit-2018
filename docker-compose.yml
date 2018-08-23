@@ -5,7 +5,7 @@ services:
     image: sensu/sensu:2.0.0-beta.4.1
     command: sensu-backend start
     volumes:
-      - ./data/sensu-backend:/var/lib/sensu
+      - ./data/sensu-backend:/var/lib/sensu/
     ports:
       - "2380:2380"
       - "3000:3000"
@@ -16,14 +16,14 @@ services:
     image: sensu/sensu:2.0.0-beta.4.1
     command: sensu-agent start --backend-url ws://sensu-influx-demo_sensu_1:8081 --subscriptions webserver,system --cache-dir /var/lib/sensu
     volumes:
-      - ./data/sensu-agent:/var/lib/sensu
+      - ./data/sensu-agent:/var/lib/sensu/
 
   influxdb:
     # Full tag list: https://hub.docker.com/r/library/influxdb/tags/
     image: influxdb:1.6.1
     volumes:
       # Mount for influxdb data directory
-      - ./data/influxdb/data:/var/lib/influxdb
+      - ./data/influxdb/data/:/var/lib/influxdb/
       # Mount for influxdb configuration
       - ./data/influxdb/config/:/etc/influxdb/
     ports:
@@ -38,7 +38,7 @@ services:
     image: chronograf:1.6.1
     volumes:
       # Mount for chronograf data directory
-      - ./data/chronograf/:/var/lib/chronograf
+      - ./data/chronograf/:/var/lib/chronograf/
     ports:
       # The WebUI for Chronograf is served on port 8888
     - "8888:8888"
