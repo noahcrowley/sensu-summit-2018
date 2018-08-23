@@ -83,9 +83,9 @@ $ sensuctl configure
 We're going to set up a simple check that outputs data in InfluxDB Line Protocol. First, we need to add the check script to the agent container, set the owner, and give it the appropriate permissions.
 
 ```
-$ docker cp ./line_protocol.sh sensu-influx-demo_sensu-agent_1:/usr/local/bin/
-$ docker exec sensu-influx-demo_sensu-agent_1 chown root:root /usr/local/bin/line_protocol.sh
-$ docker exec sensu-influx-demo_sensu-agent_1 chmod +x /usr/local/bin/line_protocol.sh
+docker cp ./line_protocol.sh sensu-influx-demo_sensu-agent_1:/usr/local/bin/
+docker exec sensu-influx-demo_sensu-agent_1 chown root:root /usr/local/bin/line_protocol.sh
+docker exec sensu-influx-demo_sensu-agent_1 chmod +x /usr/local/bin/line_protocol.sh
 ```
 
 Next, we'll create the check using sensuctl:
@@ -145,19 +145,19 @@ Click the "Create Database" button to create a new database, and give it the nam
 To access the InfluxDB CLI, execute a bash shell within the container. If you started up using Docker Compose:
 
 ```
-$ docker exec -it sensu-influx-demo_influxdb_1 /bin/bash
+docker exec -it sensu-influx-demo_influxdb_1 /bin/bash
 ```
 
 Or using the Docker commands:
 
 ```
-$ docker exec -it influxdb /bin/bash
+docker exec -it influxdb /bin/bash
 ```
 
 and then start the CLI:
 
 ```
-$ influx
+influx
 ```
 
 Select the `sensu` database:
